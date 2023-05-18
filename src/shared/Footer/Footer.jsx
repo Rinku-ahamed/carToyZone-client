@@ -1,12 +1,17 @@
 import location from "../../assets/location.png";
 import email from "../../assets/email.png";
 import phone from "../../assets/call.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
       <footer className="grid md:grid-cols-3 py-16 px-6 md:px-10 bg-slate-800  text-white rounded-t mt-16">
         <div>
-          <h2 className="text-3xl mb-3">CarToyZone</h2>
+          <h2 className=" mb-3">
+            <Link to="/" className="normal-case text-3xl font-bold">
+              CarToy<span className="text-orange-600">Zone</span>
+            </Link>
+          </h2>
           <p>
             Welcome to Car Toy Zone, your ultimate destination for all things
             car toys! Step into a world where imagination takes the driver is
