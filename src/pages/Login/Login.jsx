@@ -1,27 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    setError("");
+    setSuccess("");
     signInUser(email, password)
       .then((result) => {
         console.log(result);
         form.reset();
         setSuccess("Successfully login!!");
+        navigate("/");
       })
       .catch((error) => {
         const errorMsg = error.message;
         setError(errorMsg);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setSuccess("Successfully login with google");
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
       });
   };
   return (
@@ -74,7 +90,10 @@ const Login = () => {
             </p>
             <div className="divider">OR</div>
             <div>
-              <button className="bg-gradient-to-r from-sky-500 to-indigo-500 text-white w-full py-2 flex items-center gap-3 justify-center font-semibold">
+              <button
+                onClick={handleGoogleSignIn}
+                className="bg-gradient-to-r from-sky-500 to-indigo-500 text-white w-full py-2 flex items-center gap-3 justify-center font-semibold"
+              >
                 <span>
                   <FaGoogle />
                 </span>

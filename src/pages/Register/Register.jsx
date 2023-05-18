@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -7,6 +7,7 @@ const Register = () => {
   const { signUpUser } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -24,6 +25,7 @@ const Register = () => {
         form.reset();
         setSuccess("Successfully you are register!!");
         updateUserinfo(user, name, photo);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
