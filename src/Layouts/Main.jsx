@@ -7,7 +7,7 @@ const Main = () => {
     <div className="container mx-auto">
       <Header></Header>
       <Outlet></Outlet>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 };
