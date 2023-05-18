@@ -35,15 +35,18 @@ const Login = () => {
                   required
                 />
               </div>
+
               <div className="form-control mt-6">
                 <button className="bg-orange-600 text-white px-6 py-2 font-bold text-xl">
                   Login
                 </button>
               </div>
             </form>
+            <p className="text-orange-600 font-semibold text-xl"></p>
+            <p className="text-green-600 font-semibold text-xl"></p>
             <p>
               Don't have an account?{" "}
-              <Link to="/register" className="text-orange-600 font-bold mt-2">
+              <Link to="/register" className="text-orange-600 font-bold">
                 Register now
               </Link>
             </p>
