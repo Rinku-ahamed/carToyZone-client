@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { signUpUser } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
@@ -22,9 +23,18 @@ const Register = () => {
         console.log(user);
         form.reset();
         setSuccess("Successfully you are register!!");
+        updateUserinfo(user, name, photo);
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
+      });
+  };
+  // update user info like name and user photo
+  const updateUserinfo = (user, name, photo) => {
+    updateProfile(user, { displayName: name, photoURL: photo })
+      .then(() => {})
+      .catch((error) => {
         setError(error.message);
       });
   };

@@ -1,7 +1,29 @@
 import { Link } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
+  const { signInUser } = useContext(AuthContext);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result);
+        form.reset();
+        setSuccess("Successfully login!!");
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        setError(errorMsg);
+      });
+  };
   return (
     <div className=" py-16 md:w-5/6 mx-auto shadow-lg mt-6">
       <div className="grid md:grid-cols-2 gap-8 px-8">
@@ -10,7 +32,7 @@ const Login = () => {
         </div>
         <div className="card shadow-2xl bg-base-100">
           <div className="card-body">
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -42,8 +64,8 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <p className="text-orange-600 font-semibold text-xl"></p>
-            <p className="text-green-600 font-semibold text-xl"></p>
+            <p className="text-orange-600 font-semibold text-xl">{error}</p>
+            <p className="text-green-600 font-semibold text-xl">{success}</p>
             <p>
               Don't have an account?{" "}
               <Link to="/register" className="text-orange-600 font-bold">
