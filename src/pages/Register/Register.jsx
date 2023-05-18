@@ -1,6 +1,33 @@
 import { Link } from "react-router-dom";
 import login from "../../assets/login.jpg";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 const Register = () => {
+  const { signUpUser } = useContext(AuthContext);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photo, email, password);
+    setError("");
+    setSuccess("");
+    signUpUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setSuccess("Successfully you are register!!");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
   return (
     <div className=" py-16 md:w-5/6 mx-auto shadow-lg mt-6">
       <div className="grid md:grid-cols-2 gap-8 px-8">
@@ -9,7 +36,7 @@ const Register = () => {
         </div>
         <div className="card shadow-2xl bg-base-100">
           <div className="card-body">
-            <form>
+            <form onSubmit={handleRegister}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -65,8 +92,8 @@ const Register = () => {
                 </button>
               </div>
             </form>
-            <p className="text-orange-600 font-semibold text-xl"></p>
-            <p className="text-green-600 font-semibold text-xl"></p>
+            <p className="text-orange-600 font-semibold text-xl">{error}</p>
+            <p className="text-green-600 font-semibold text-xl">{success}</p>
             <p>
               Already have an account?{" "}
               <Link to="/login" className="text-orange-600 font-bold">
