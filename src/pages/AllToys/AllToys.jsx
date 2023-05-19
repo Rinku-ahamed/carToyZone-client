@@ -4,7 +4,7 @@ import banner from "../../assets/banner-cover.jpg";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("http://localhost:5000/toys?limit=20")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -20,10 +20,10 @@ const AllToys = () => {
                 <div className="input-group">
                   <input
                     type="text"
-                    placeholder="Search…"
+                    placeholder="Search Your Toys..."
                     className="input input-bordered text-black w-full"
                   />
-                  <button className="btn btn-square">
+                  <button className="bg-orange-600 px-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -45,8 +45,8 @@ const AllToys = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-3xl text-center">All toys</h2>
-      <div className="mt-6">
+      <div className="mt-10">
+        <h2 className="text-3xl text-center mb-6">All toys</h2>
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full">
             {/* head */}

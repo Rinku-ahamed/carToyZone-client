@@ -8,7 +8,7 @@ const ErrorPage = () => {
         <h2 className="text-7xl text-orange-600 font-bold">Page Not Found</h2>
         <Link to="/">
           <button className="bg-gradient-to-r from-sky-500 to-indigo-500 text-white text-xl font-semibold px-6 py-2 rounded-md mt-6">
-            Go Back
+            Back To Home
           </button>
         </Link>
       </div>
