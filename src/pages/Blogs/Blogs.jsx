@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
 import banner from "../../assets/banner-cover.jpg";
 const Blogs = () => {
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>CarToyZone | Blogs</title>
+      </Helmet>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -91,7 +95,7 @@ const Blogs = () => {
           </p>
         </article>
       </div>
-    </div>
+    </>
   );
 };
 

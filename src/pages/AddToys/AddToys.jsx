@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import banner from "../../assets/banner-cover.jpg";
+import { Helmet } from "react-helmet";
 const AddToys = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -50,6 +51,9 @@ const AddToys = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>CarToyZone | Add Toys</title>
+      </Helmet>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">

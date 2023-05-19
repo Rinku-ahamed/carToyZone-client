@@ -3,6 +3,7 @@ import login from "../../assets/login.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
 const Register = () => {
   const { signUpUser } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
@@ -42,6 +43,9 @@ const Register = () => {
   };
   return (
     <div className=" py-16 md:w-5/6 mx-auto shadow-lg mt-6">
+      <Helmet>
+        <title>CarToyZone | Register</title>
+      </Helmet>
       <div className="grid md:grid-cols-2 gap-8 px-8">
         <div className="text-center lg:text-left">
           <img src={login} alt="" className="" />

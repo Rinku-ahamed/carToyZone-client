@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import banner from "../../assets/banner-cover.jpg";
 
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const UpdateToys = () => {
   const toy = useLoaderData();
   const { _id, name, price, quantity, description } = toy;
@@ -38,6 +39,9 @@ const UpdateToys = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>CarToyZone | Update Toys</title>
+      </Helmet>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">

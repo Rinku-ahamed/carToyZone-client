@@ -3,6 +3,7 @@ import login from "../../assets/login.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 const Login = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
@@ -45,6 +46,9 @@ const Login = () => {
   };
   return (
     <div className=" py-16 md:w-5/6 mx-auto shadow-lg mt-6">
+      <Helmet>
+        <title>CarToyZone | Login</title>
+      </Helmet>
       <div className="grid md:grid-cols-2 gap-8 px-8">
         <div className="text-center lg:text-left">
           <img src={login} alt="" className="" />

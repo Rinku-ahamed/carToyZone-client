@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AllToysRow from "./AllToysRow";
 import banner from "../../assets/banner-cover.jpg";
+import { Helmet } from "react-helmet";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
@@ -21,7 +22,10 @@ const AllToys = () => {
       });
   };
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>CarToyZone | All Toys</title>
+      </Helmet>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -82,7 +86,7 @@ const AllToys = () => {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

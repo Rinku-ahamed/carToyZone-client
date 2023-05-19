@@ -4,7 +4,7 @@ const Galleries = () => {
       <div className="text-center w-2/3 mx-auto">
         <h2 className="text-4xl font-semibold">A Gallery of Car Toy Wonders</h2>
       </div>
-      <div className="grid sm:grid-cols-3 gap-6 mt-10 px-20">
+      <div className="grid sm:grid-cols-3 gap-6 mt-10 md:px-10">
         <div className="border rounded shadow p-4" data-aos="flip-left">
           <img
             src="https://i.ibb.co/vP3sPzb/6.jpg"

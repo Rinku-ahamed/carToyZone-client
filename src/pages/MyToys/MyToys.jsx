@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import banner from "../../assets/banner-cover.jpg";
 import { AuthContext } from "../../provider/AuthProvider";
 import MyToysRow from "./MyToysRow";
+import { Helmet } from "react-helmet";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
@@ -16,6 +17,9 @@ const MyToys = () => {
   }, [user.email]);
   return (
     <div>
+      <Helmet>
+        <title>CarToyZone | My Toys</title>
+      </Helmet>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">

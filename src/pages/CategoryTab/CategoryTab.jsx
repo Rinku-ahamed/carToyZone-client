@@ -17,12 +17,12 @@ const CategoryTab = () => {
   }, [category]);
   return (
     <div>
-      <div className="text-center w-2/3 mx-auto pt-10">
-        <h2 className="text-4xl font-semibold">
+      <div className="text-center md:w-2/3 mx-auto pt-10">
+        <h2 className="text-2xl md:text-4xl font-semibold">
           Discover Subcategories of Car Toys
         </h2>
       </div>
-      <div className="mt-10 px-20">
+      <div className="mt-10 md:px-10">
         <Tabs>
           <TabList>
             <Tab onClick={() => setCategory("sports-car")}>Sports Car</Tab>
