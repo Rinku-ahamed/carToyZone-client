@@ -135,6 +135,8 @@ const AddToys = () => {
                 placeholder="Rating"
                 name="rating"
                 className="input input-bordered w-full"
+                min="0"
+                max="5"
                 required
               />
             </div>

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
@@ -8,6 +8,9 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location?.state?.from?.pathname || "/";
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +23,7 @@ const Login = () => {
         console.log(result);
         form.reset();
         setSuccess("Successfully login!!");
-        navigate("/");
+        navigate(from);
       })
       .catch((error) => {
         const errorMsg = error.message;

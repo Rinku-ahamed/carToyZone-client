@@ -8,6 +8,18 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    console.log(name);
+    fetch(`http://localhost:5000/searchToy?search=${name}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setToys(data);
+      });
+  };
   return (
     <div>
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
@@ -15,15 +27,16 @@ const AllToys = () => {
         <div className="hero-content text-center text-neutral-content">
           <div className="w-[500px]">
             <h2 className="text-3xl font-semibold mb-5">Search By Toy Name</h2>
-            <form>
+            <form onSubmit={handleSearch}>
               <div className="form-control">
                 <div className="input-group">
                   <input
                     type="text"
                     placeholder="Search Your Toys..."
                     className="input input-bordered text-black w-full"
+                    name="name"
                   />
-                  <button className="bg-orange-600 px-2">
+                  <button className="bg-orange-600 px-2" type="submit">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"

@@ -8,6 +8,7 @@ const Header = () => {
   const handleLogout = () => {
     logOutUser()
       .then((result) => {
+        console.log(result);
         navigate("/login");
       })
       .catch((error) => {
@@ -65,9 +66,9 @@ const Header = () => {
         {user ? (
           <div className="flex gap-3 items-center">
             <img
-              src={user?.photoUrl}
+              src={user.photoURL}
               alt=""
-              title={user?.displayName}
+              title={user.displayName}
               className="w-10 h-10 rounded-full"
             />
             <button

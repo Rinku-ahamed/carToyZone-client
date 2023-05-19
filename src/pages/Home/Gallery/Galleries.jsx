@@ -3,22 +3,16 @@ const Galleries = () => {
     <div className="mt-14 mb-10">
       <div className="text-center w-2/3 mx-auto">
         <h2 className="text-4xl font-semibold">A Gallery of Car Toy Wonders</h2>
-        <p className="mt-4">
-          A Gallery of Car Toy Wonders - Fuel Your Imagination with a
-          Spectacular Showcase of Car Toy Marvels. Step into our captivating
-          gallery and immerse yourself in a world of miniature automotive
-          excellence.
-        </p>
       </div>
       <div className="grid sm:grid-cols-3 gap-6 mt-10 px-20">
-        <div className="border rounded shadow p-4">
+        <div className="border rounded shadow p-4" data-aos="flip-left">
           <img
             src="https://i.ibb.co/vP3sPzb/6.jpg"
             className="w-full h-56 object-cover"
             alt=""
           />
         </div>
-        <div className="border rounded shadow p-4">
+        <div className="border rounded shadow p-4" data-aos="flip-left">
           <img
             src="https://i.ibb.co/vzb548d/5.jpg"
             className="w-full h-56 object-cover"
