@@ -1,12 +1,56 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
+  const handleAddToys = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.sellerEmail.value;
+    const subCategory = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+    const toy = {
+      photo,
+      name,
+      sellerName,
+      sellerEmail,
+      subCategory,
+      price,
+      rating,
+      quantity,
+      description,
+    };
+    console.log(toy);
+    fetch("http://localhost:5000/toys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Successfully add a toys",
+          });
+        }
+      });
+  };
   return (
     <div className="mx-auto mt-16 shadow-md px-10 py-10 w-5/6">
-      <form>
+      <form onSubmit={handleAddToys}>
         <div className="md:flex gap-6">
           <div className="form-control w-full">
             <label className="label">Photo Url</label>
@@ -34,7 +78,7 @@ const AddToys = () => {
             <label className="label">Seller Name</label>
             <input
               type="text"
-              name="seller-name"
+              name="sellerName"
               className="input input-bordered w-full"
               defaultValue={user?.displayName}
             />
@@ -44,7 +88,7 @@ const AddToys = () => {
             <input
               type="email"
               placeholder="Enter Email"
-              name="seller-email"
+              name="sellerEmail"
               className="input input-bordered w-full"
               defaultValue={user?.email}
             />
@@ -53,7 +97,7 @@ const AddToys = () => {
         <div className="md:flex gap-6 mt-6">
           <div className="form-control w-full">
             <label className="label">Sub Category</label>
-            <select className="select select-bordered" required>
+            <select className="select select-bordered" required name="category">
               <option value="sports-car">sports car</option>
               <option value="police-car">mini police car</option>
               <option value="fire-track">mini fire truck</option>
@@ -97,12 +141,13 @@ const AddToys = () => {
           <textarea
             className="textarea textarea-bordered w-full h-48"
             placeholder="Toy Description"
+            name="description"
           ></textarea>
         </div>
         <input
           type="submit"
           value="Add A Toys"
-          className="w-full bg-orange-600 text-white font-bold py-3 text-lg rounded-md mt-6"
+          className="w-full bg-orange-600 text-white font-bold py-3 text-lg rounded-md mt-6 cursor-pointer"
         />
       </form>
     </div>
