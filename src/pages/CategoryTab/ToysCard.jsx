@@ -4,7 +4,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const ToysCard = ({ toy }) => {
   const { user } = useContext(AuthContext);
   console.log(toy);
@@ -18,8 +20,17 @@ const ToysCard = ({ toy }) => {
       });
     }
   };
+  //useEffect
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <div className="shadow-xl mt-10 border rounded-md">
+    <div
+      className="shadow-xl mt-10 border rounded-md"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <figure>
         <img
           src={photo}

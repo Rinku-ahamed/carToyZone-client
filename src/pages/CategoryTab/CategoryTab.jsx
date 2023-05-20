@@ -3,6 +3,7 @@ import "./Category.css";
 import "react-tabs/style/react-tabs.css";
 import { useEffect, useState } from "react";
 import ToysCard from "./ToysCard";
+import { RotatingLines } from "react-loader-spinner";
 const CategoryTab = () => {
   const [categoryToys, setCategoryToys] = useState([]);
   const [category, setCategory] = useState("sports-car");
@@ -32,23 +33,65 @@ const CategoryTab = () => {
 
           <TabPanel>
             <div className="grid md:grid-cols-3 gap-10 mt-4">
-              {categoryToys.slice(0, 3).map((catToy) => (
-                <ToysCard key={catToy._id} toy={catToy}></ToysCard>
-              ))}
+              {categoryToys.length === 0 ? (
+                <div className="text-center mx-auto">
+                  <RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                  />
+                </div>
+              ) : (
+                categoryToys
+                  .slice(0, 3)
+                  .map((catToy) => (
+                    <ToysCard key={catToy._id} toy={catToy}></ToysCard>
+                  ))
+              )}
             </div>
           </TabPanel>
           <TabPanel>
             <div className="grid md:grid-cols-3 gap-10 mt-4">
-              {categoryToys.slice(0, 3).map((catToy) => (
-                <ToysCard key={catToy._id} toy={catToy}></ToysCard>
-              ))}
+              {categoryToys.length === 0 ? (
+                <div className="text-center mx-auto">
+                  <RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                  />
+                </div>
+              ) : (
+                categoryToys
+                  .slice(0, 3)
+                  .map((catToy) => (
+                    <ToysCard key={catToy._id} toy={catToy}></ToysCard>
+                  ))
+              )}
             </div>
           </TabPanel>
           <TabPanel>
             <div className="grid md:grid-cols-3 gap-10 mt-4">
-              {categoryToys.slice(0, 3).map((catToy) => (
-                <ToysCard key={catToy._id} toy={catToy}></ToysCard>
-              ))}
+              {categoryToys.length === 0 ? (
+                <div className="text-center mx-auto">
+                  <RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                  />
+                </div>
+              ) : (
+                categoryToys
+                  .slice(0, 3)
+                  .map((catToy) => (
+                    <ToysCard key={catToy._id} toy={catToy}></ToysCard>
+                  ))
+              )}
             </div>
           </TabPanel>
         </Tabs>

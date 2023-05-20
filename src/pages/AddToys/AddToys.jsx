@@ -135,7 +135,7 @@ const AddToys = () => {
             <div className="form-control w-full">
               <label className="label">Rating</label>
               <input
-                type="number"
+                type="text"
                 placeholder="Rating"
                 name="rating"
                 className="input input-bordered w-full"
@@ -147,7 +147,7 @@ const AddToys = () => {
             <div className="form-control w-full ">
               <label className="label">Quantity</label>
               <input
-                type="number"
+                type="text"
                 placeholder="Quantity"
                 name="quantity"
                 className="input input-bordered w-full"

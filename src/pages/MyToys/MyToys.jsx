@@ -15,6 +15,10 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user.email]);
+  const handleSorting = (event) => {
+    const sortText = event.target.value;
+    console.log(sortText);
+  };
   return (
     <div>
       <Helmet>
@@ -29,6 +33,18 @@ const MyToys = () => {
         </div>
       </div>
       <div className="mt-10">
+        <div className="flex items-center gap-3 justify-end mb-5">
+          <span className="font-semibold">Sort By</span>
+
+          <select
+            name="filter"
+            className="border px-3 py-1 outline-none rounded"
+            onChange={handleSorting}
+          >
+            <option value="ascending">Ascending</option>
+            <option value="descending ">Descending </option>
+          </select>
+        </div>
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full">
             {/* head */}
