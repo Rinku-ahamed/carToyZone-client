@@ -8,7 +8,7 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/myToys?email=${user.email}`;
+    const url = `https://car-toy-zone-server-rinku-ahamed.vercel.app/myToys?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -17,12 +17,16 @@ const MyToys = () => {
   }, [user.email]);
 
   const handleDescending = (text) => {
-    fetch(`http://localhost:5000/filterToys?text=${text}&email=${user.email}`)
+    fetch(
+      `https://car-toy-zone-server-rinku-ahamed.vercel.app/filterToys?text=${text}&email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
   const handleAscending = (text) => {
-    fetch(`http://localhost:5000/filterToys?text=${text}&email=${user.email}`)
+    fetch(
+      `https://car-toy-zone-server-rinku-ahamed.vercel.app/filterToys?text=${text}&email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
@@ -35,7 +39,7 @@ const MyToys = () => {
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="w-[500px]">
+          <div className="lg:w-[500px]">
             <h2 className="text-3xl font-semibold mb-5">My Toys</h2>
           </div>
         </div>

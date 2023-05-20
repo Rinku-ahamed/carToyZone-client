@@ -15,9 +15,12 @@ const MyToysRow = ({ toy, toys, setToys }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myToys/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://car-toy-zone-server-rinku-ahamed.vercel.app/myToys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -32,14 +35,14 @@ const MyToysRow = ({ toy, toys, setToys }) => {
   return (
     <tr>
       <td>{sellerName}</td>
-      <td>{name}</td>
+      <td>{name.slice(0, 20)}...</td>
       <td>{subCategory}</td>
       <td>${price}</td>
       <td>{quantity}</td>
       <td>
         <Link to={`/updateToys/${_id}`}>
           <button className="bg-orange-600 text-white px-3 py-1 rounded me-2">
-            Update
+            Edit
           </button>
         </Link>
         <button

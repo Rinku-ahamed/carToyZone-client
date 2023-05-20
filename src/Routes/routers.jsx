@@ -46,7 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/${params.id}`),
+          fetch(
+            `https://car-toy-zone-server-rinku-ahamed.vercel.app/allToys/${params.id}`
+          ),
       },
       {
         path: "/addToys",
@@ -72,7 +74,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myToys/${params.id}`),
+          fetch(
+            `https://car-toy-zone-server-rinku-ahamed.vercel.app/myToys/${params.id}`
+          ),
       },
     ],
   },

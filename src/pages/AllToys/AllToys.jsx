@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys?limit=20")
+    fetch("https://car-toy-zone-server-rinku-ahamed.vercel.app/toys?limit=20")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -15,7 +15,9 @@ const AllToys = () => {
     const form = event.target;
     const name = form.name.value;
     console.log(name);
-    fetch(`http://localhost:5000/searchToy?search=${name}`)
+    fetch(
+      `https://car-toy-zone-server-rinku-ahamed.vercel.app/searchToy?search=${name}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -29,7 +31,7 @@ const AllToys = () => {
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="w-[500px]">
+          <div className="lg:w-[500px]">
             <h2 className="text-3xl font-semibold mb-5">Search By Toy Name</h2>
             <form onSubmit={handleSearch}>
               <div className="form-control">

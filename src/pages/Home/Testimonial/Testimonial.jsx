@@ -32,11 +32,13 @@ const Testimonial = () => {
     ],
   };
   return (
-    <div className="mt-16 mb-10 px-10">
-      <div className="text-center w-2/3 mx-auto">
-        <h2 className="text-4xl font-semibold">Our Customer Loves Us</h2>
+    <div className="mt-16 mb-10 md:px-10">
+      <div className="text-center md:w-2/3 mx-auto">
+        <h2 className="text-3xl md:text-4xl font-semibold">
+          Our Customer Loves Us
+        </h2>
       </div>
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <Slider {...settings}>
           <div className="p-3 shadow">
             <p className="text-lg">

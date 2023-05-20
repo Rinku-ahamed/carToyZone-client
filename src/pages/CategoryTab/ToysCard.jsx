@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 const ToysCard = ({ toy }) => {
   const { user } = useContext(AuthContext);
-  console.log(toy);
+
   const { _id, photo, name, price, rating } = toy;
   const handleNotification = () => {
     if (!user) {

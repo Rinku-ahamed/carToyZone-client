@@ -30,7 +30,7 @@ const AddToys = () => {
       description,
     };
     console.log(toy);
-    fetch("http://localhost:5000/toys", {
+    fetch("https://car-toy-zone-server-rinku-ahamed.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +57,7 @@ const AddToys = () => {
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="w-[500px]">
+          <div className="lg:w-[500px]">
             <h2 className="text-3xl font-semibold mb-5">Add A Toys</h2>
           </div>
         </div>

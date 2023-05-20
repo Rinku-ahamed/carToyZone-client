@@ -10,15 +10,15 @@ const AllToysDetails = () => {
       <div className="hero h-64" style={{ backgroundImage: `url(${banner})` }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="w-[500px]">
+          <div className="lg:w-[500px]">
             <h2 className="text-3xl font-semibold mb-5">
               Single Details For Toys
             </h2>
           </div>
         </div>
       </div>
-      <div className="flex bg-base-100 shadow-xl mt-20 md:mx-20">
-        <div className="w-1/3">
+      <div className="md:flex bg-base-100 shadow-xl mt-20 md:mx-20">
+        <div className="md:w-1/3">
           <figure>
             <img
               src={photo}

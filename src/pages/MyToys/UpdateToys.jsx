@@ -9,7 +9,7 @@ const UpdateToys = () => {
   const handleUpdateToys = (event) => {
     event.preventDefault();
     const form = event.target;
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const quantity = form.quantity.value;
     const description = form.description.value;
     const toy = {
@@ -17,7 +17,7 @@ const UpdateToys = () => {
       quantity,
       description,
     };
-    fetch(`http://localhost:5000/myToys/${_id}`, {
+    fetch(`https://car-toy-zone-server-rinku-ahamed.vercel.app/myToys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

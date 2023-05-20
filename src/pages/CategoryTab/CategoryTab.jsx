@@ -9,17 +9,18 @@ const CategoryTab = () => {
   const [category, setCategory] = useState("sports-car");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${category}`)
+    fetch(
+      `https://car-toy-zone-server-rinku-ahamed.vercel.app/toys/${category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCategoryToys(data);
-        console.log(data);
       });
   }, [category]);
   return (
     <div>
       <div className="text-center md:w-2/3 mx-auto pt-10">
-        <h2 className="text-2xl md:text-4xl font-semibold">
+        <h2 className="text-3xl md:text-4xl font-semibold">
           Discover Subcategories of Car Toys
         </h2>
       </div>
@@ -27,8 +28,8 @@ const CategoryTab = () => {
         <Tabs>
           <TabList>
             <Tab onClick={() => setCategory("sports-car")}>Sports Car</Tab>
-            <Tab onClick={() => setCategory("fire-track")}>Mini Police Car</Tab>
-            <Tab onClick={() => setCategory("police-car")}>Mini Fire Truck</Tab>
+            <Tab onClick={() => setCategory("fire-track")}>Mini Fire Truck</Tab>
+            <Tab onClick={() => setCategory("police-car")}>Mini Police Car</Tab>
           </TabList>
 
           <TabPanel>
