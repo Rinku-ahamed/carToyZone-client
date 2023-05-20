@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
-const MyToysRow = ({ toy }) => {
+const MyToysRow = ({ toy, toys, setToys }) => {
   const { _id, sellerName, name, subCategory, price, quantity } = toy;
   const handleDelete = (id) => {
     Swal.fire({
@@ -20,10 +20,11 @@ const MyToysRow = ({ toy }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your toys has been deleted.", "success");
             }
+            const newToys = toys.filter((ty) => ty._id !== id);
+            setToys(newToys);
           });
       }
     });

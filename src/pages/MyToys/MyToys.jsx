@@ -15,10 +15,18 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user.email]);
-  const handleSorting = (event) => {
-    const sortText = event.target.value;
-    console.log(sortText);
+
+  const handleDescending = (text) => {
+    fetch(`http://localhost:5000/filterToys?text=${text}&email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
   };
+  const handleAscending = (text) => {
+    fetch(`http://localhost:5000/filterToys?text=${text}&email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  };
+
   return (
     <div>
       <Helmet>
@@ -34,16 +42,18 @@ const MyToys = () => {
       </div>
       <div className="mt-10">
         <div className="flex items-center gap-3 justify-end mb-5">
-          <span className="font-semibold">Sort By</span>
-
-          <select
-            name="filter"
-            className="border px-3 py-1 outline-none rounded"
-            onChange={handleSorting}
+          <button
+            className="bg-slate-700 text-white px-2 py-1 rounded"
+            onClick={() => handleAscending("ascending")}
           >
-            <option value="ascending">Ascending</option>
-            <option value="descending ">Descending </option>
-          </select>
+            Ascending
+          </button>
+          <button
+            onClick={() => handleDescending("descending")}
+            className="bg-black text-white px-2 py-1 rounded"
+          >
+            Descending
+          </button>
         </div>
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full">
@@ -60,7 +70,12 @@ const MyToys = () => {
             </thead>
             <tbody>
               {toys.map((toy) => (
-                <MyToysRow key={toy._id} toy={toy}></MyToysRow>
+                <MyToysRow
+                  key={toy._id}
+                  toy={toy}
+                  toys={toys}
+                  setToys={setToys}
+                ></MyToysRow>
               ))}
             </tbody>
           </table>
