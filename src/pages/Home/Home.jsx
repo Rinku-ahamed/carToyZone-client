@@ -2,6 +2,7 @@ import CategoryTab from "../CategoryTab/CategoryTab";
 import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
 import Galleries from "./Gallery/Galleries";
+import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Category></Category>
       <Galleries></Galleries>
       <CategoryTab></CategoryTab>
+      <Testimonial></Testimonial>
     </div>
   );
 };
