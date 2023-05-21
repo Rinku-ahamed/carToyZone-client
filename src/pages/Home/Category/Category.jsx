@@ -19,7 +19,7 @@ const Category = () => {
           <img
             src="https://i.ibb.co/vP3sPzb/6.jpg"
             alt=""
-            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 md:w-[200px] md:h-[200px] mx-auto"
+            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 h-[172px] md:w-[200px] md:h-[200px] mx-auto"
           />
           <h3 className="mt-2 text-lg font-semibold hover:text-orange-600 cursor-pointer">
             Regular car
@@ -39,7 +39,7 @@ const Category = () => {
           <img
             src="https://i.ibb.co/vzb548d/5.jpg"
             alt=""
-            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 md:w-[200px] md:h-[200px] mx-auto"
+            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 h-[172px] md:w-[200px] md:h-[200px] mx-auto"
           />
           <h3 className="mt-2 text-lg font-semibold hover:text-orange-600 cursor-pointer">
             Mini police car
@@ -49,7 +49,7 @@ const Category = () => {
           <img
             src="https://i.ibb.co/6BVX2L6/7b-Standard-Heral.jpg"
             alt=""
-            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 md:w-[200px] md:h-[200px] mx-auto"
+            className="rounded-full  transition duration-700 ease-in-out cursor-pointer hover:opacity-60 w-2/3 h-[172px] md:w-[200px] md:h-[200px] mx-auto"
           />
           <h3 className="mt-2 text-lg font-semibold hover:text-orange-600 cursor-pointer">
             Sports Car

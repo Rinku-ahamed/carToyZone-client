@@ -47,7 +47,7 @@ const Testimonial = () => {
               dapibus nec turpis vel, semper malesuada ante, commodo iacul
               viverra.
             </p>
-            <div className="flex gap-6 mt-6">
+            <div className="sm:flex gap-6 mt-6">
               <div className="avatar">
                 <div className="w-20 h-20 rounded-full">
                   <img src="https://i.ibb.co/jgscYX6/1-1.jpg" />
@@ -66,7 +66,7 @@ const Testimonial = () => {
               eget mi suscipit tincidunt. Utmtc tempus dictum. Pellentesque
               virra. Quis quam ut magna consequat faucibus, metus id mi gravida.
             </p>
-            <div className="flex gap-6 mt-6">
+            <div className="sm:flex gap-6 mt-6">
               <div className="avatar">
                 <div className="w-20 h-20 rounded-full">
                   <img src="https://i.ibb.co/BV39J68/2-1.jpg" />
@@ -86,7 +86,7 @@ const Testimonial = () => {
               dapibus nec turpis vel, semper malesuada ante, commodo iacul
               viverra.
             </p>
-            <div className="flex gap-6 mt-6">
+            <div className="sm:flex gap-6 mt-6">
               <div className="avatar">
                 <div className="w-20 h-20 rounded-full">
                   <img src="https://i.ibb.co/n7KH3H2/5-1.jpg" />

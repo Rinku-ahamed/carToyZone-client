@@ -33,7 +33,7 @@ const CategoryTab = () => {
           </TabList>
 
           <TabPanel>
-            <div className="grid md:grid-cols-3 gap-10 mt-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mt-4">
               {categoryToys.length === 0 ? (
                 <div className="text-center mx-auto">
                   <RotatingLines
@@ -54,7 +54,7 @@ const CategoryTab = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid md:grid-cols-3 gap-10 mt-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mt-4">
               {categoryToys.length === 0 ? (
                 <div className="text-center mx-auto">
                   <RotatingLines
