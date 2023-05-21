@@ -1,9 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import banner from "../../assets/banner-cover.jpg";
+import { Rating } from "@smastrom/react-rating";
 const AllToysDetails = () => {
   const toy = useLoaderData();
-  const { photo, sellerName, name, price, quantity, description, sellerEmail } =
-    toy;
+  const {
+    photo,
+    sellerName,
+    name,
+    price,
+    quantity,
+    description,
+    sellerEmail,
+    rating,
+  } = toy;
   console.log(toy);
   return (
     <>
@@ -32,6 +41,15 @@ const AllToysDetails = () => {
           <h3 className="text-lg">Seller Name: {sellerName}</h3>
           <h3 className="text-lg">Seller Email: {sellerEmail}</h3>
           <h3 className="text-lg">Price: ${price}</h3>
+          <h3 className="text-lg flex">
+            Rating:
+            <Rating
+              style={{ maxWidth: 100 }}
+              value={Math.round(parseInt(rating))}
+              readOnly
+            />
+            ({rating})
+          </h3>
           <h3 className="text-lg">Quantity: {quantity}</h3>
           <h3 className="card-title">Description</h3>
           <p>{description}</p>

@@ -3,7 +3,17 @@ import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
 const MyToysRow = ({ toy, toys, setToys }) => {
-  const { _id, sellerName, name, subCategory, price, quantity } = toy;
+  const {
+    _id,
+    sellerName,
+    sellerEmail,
+    photo,
+    name,
+    subCategory,
+    price,
+    quantity,
+  } = toy;
+  console.log(toy);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -34,6 +44,14 @@ const MyToysRow = ({ toy, toys, setToys }) => {
   };
   return (
     <tr>
+      <td>
+        <div className="avatar">
+          <div className="mask mask-squircle w-12 h-12">
+            <img src={photo} alt="Avatar Tailwind CSS Component" />
+          </div>
+        </div>
+      </td>
+      <td>{sellerEmail}</td>
       <td>{sellerName}</td>
       <td>{name.slice(0, 20)}...</td>
       <td>{subCategory}</td>
